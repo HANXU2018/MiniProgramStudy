@@ -1,0 +1,6 @@
+<view class="user">
+  <view class="user-info">
+    <image src="{{userPhoto}}"></image>
+    <text>欢迎您:{{nickName}}</text>
+  </view>
+</view>

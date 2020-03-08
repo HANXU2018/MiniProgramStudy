@@ -1,0 +1,19 @@
+.user-info{
+  height:150rpx;
+  width:100%;
+  border:2px rgb(94, 182, 249) solid;
+  border-left: none;
+  border-right: none;
+  display:flex;
+  align-items: center;
+}
+.user-info image{
+  margin-left: 20rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-info text{
+  margin-left: 20rpx;
+}

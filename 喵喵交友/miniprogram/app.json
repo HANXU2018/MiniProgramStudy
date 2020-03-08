@@ -1,14 +1,49 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/near/near",
+    "pages/messagepage/messagepage",
+    "pages/user/user"
+
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#C0E5FF",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarBackgroundColor": "#C0E5FF",
+    "navigationBarTitleText": "喵喵交友",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "tabBar": {
+    "borderStyle":"white",
+    "backgroundColor":"#C0E5FF",
+    "selectedColor":"#467EFF",
+    "list": [
+      {
+        "iconPath":"images/tabbar/index.png",
+        "selectedIconPath":"images/tabbar/indexselect.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "iconPath":"images/tabbar/near.png",
+        "selectedIconPath":"images/tabbar/nearselect.png",
+        "pagePath": "pages/near/near",
+        "text": "附近"
+      },
+      {
+        "iconPath":"images/tabbar/message.png",
+        "selectedIconPath":"images/tabbar/messageselect.png",
+        "pagePath": "pages/messagepage/messagepage",
+        "text": "消息"
+      },
+      {
+        "iconPath":"images/tabbar/user.png",
+        "selectedIconPath":"images/tabbar/userselect.png",
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
+  }
 }

@@ -1,13 +1,11 @@
-// miniprogram/pages/index/index.js
+// miniprogram/pages/messagepage/messagepage.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    "background":['https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg', 
-    'https://love.hanxu51.cn/wp-content/uploads/2020/03/2172c89833171f242d91191e3b74164c.jpg',
-    'https://love.hanxu51.cn/wp-content/uploads/2020/03/6fb80048b8aafd27d5651596a27e73478119bfc7.jpg']  
+
   },
 
   /**
