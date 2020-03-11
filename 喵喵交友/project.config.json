@@ -20,13 +20,15 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"nodeModules": true
 	},
 	"appid": "wx4e0c0ab7a6e4904a",
 	"projectname": "%E5%96%B5%E5%96%B5%E4%BA%A4%E5%8F%8B",
 	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -60,6 +62,49 @@
 					"id": -1,
 					"name": "pages/user/user",
 					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editUserInfo/signature/signature",
+					"pathName": "pages/editUserInfo/signature/signature",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/messagepage/messagepage",
+					"pathName": "pages/messagepage/messagepage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editUserInfo/location/location",
+					"pathName": "pages/editUserInfo/location/location",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editUserInfo/name/name",
+					"pathName": "pages/editUserInfo/name/name",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editUserInfo/head/head",
+					"pathName": "pages/editUserInfo/head/head",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "pages/detail/detail",
+					"pathName": "pages/detail/detail",
+					"query": "userId=1583839778319_0.556843017093686_33600541",
 					"scene": null
 				}
 			]

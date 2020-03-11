@@ -1,4 +1,5 @@
 // miniprogram/pages/index/index.js
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -7,7 +8,10 @@ Page({
   data: {
     "background":['https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg', 
     'https://love.hanxu51.cn/wp-content/uploads/2020/03/2172c89833171f242d91191e3b74164c.jpg',
-    'https://love.hanxu51.cn/wp-content/uploads/2020/03/6fb80048b8aafd27d5651596a27e73478119bfc7.jpg']  
+    'https://love.hanxu51.cn/wp-content/uploads/2020/03/6fb80048b8aafd27d5651596a27e73478119bfc7.jpg'],
+     listData:[],
+     current:'links'
+
   },
 
   /**
@@ -21,7 +25,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.getListData();
   },
 
   /**
@@ -64,5 +68,66 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  handleLinks(ev){
+    let id = ev.target.dataset.id;
+    wx.cloud.callFunction({
+      name:'update',
+      data:{
+        collection:'users',
+        doc:id,
+        data:"{links:_.inc(1)}"
+      }
+    }).then((res)=>{
+      let updated = res.result.stats.updated;
+      if(updated){
+        let cloneListData = [...this.data.listData];
+        for(let i=0;i<cloneListData.length;i++){
+          if(cloneListData[i]._id==id){
+            cloneListData[i].links++;
+          }
+        }
+        this.setData({
+          listData:cloneListData
+        })
+        if(this.data.current=='links'){
+          this.getListData();
+        }
+        
+      }
+    })
+
+  },
+  handlecurrent:function(ev){
+    let current = ev.target.dataset.current;
+    if(current == this.data.current){
+      return false;
+    }
+    this.setData({
+      current
+    },(()=>{
+      this.getListData();
+    })) 
+  },
+  getListData(){
+    db.collection('users')
+    .field({
+      userPhoto: true,
+      nickName: true,
+      links: true
+    })
+    .orderBy(this.data.current, 'desc')
+    .get()
+    .then((res) => {
+      this.setData({
+        listData: res.data
+      });
+    });
+  },
+  handledetil(ev){
+    let id = ev.target.dataset.id;
+    wx.navigateTo({
+      url: '/pages/detail/detail?userId='+id,
+    })
   }
 })

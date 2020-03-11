@@ -31,16 +31,17 @@
   color: goldenrod;
 }
 .index-list-item{
-  width: 50%;
+  width: 49%;
   margin: 10rpx 0;
+  border-bottom: 5rpx rgba(166, 216, 255,1)  solid;
+  border-radius: 40rpx ;
 }
 .index-list-item image{
-  border-radius: 10rpx;
+  border-radius: 10rpx ;
   width: 90%;
-  height: 125rpx;
   margin: 0 auto;
   display: block;
-  
+  border: 8rpx rgba(166, 216, 255,0.3)  dashed;
 }
 .index-list-text{
   width: 90%;

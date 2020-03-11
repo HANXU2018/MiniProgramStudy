@@ -1,3 +1,5 @@
+<wxs src="./../../utils/wordSplit.wxs" module="m1"/>
+<wxs src="./../../utils/unitFormat.wxs" module="m2"/>
 <view class="index">
   <swiper class="index-swiper" indicator-dots="{{indicatorDots}}"
         autoplay="{{true}}" circular="{{true}}" indicator-dots="{{true}}">
@@ -9,74 +11,24 @@
       </swiper>
 
       <view class="index-tab">
-        <view>推荐</view>
-        <view class="active">最新</view>
+        <view class="{{current == 'links' ? 'active' : ''}}" data-current="links" bindtap="handlecurrent">推荐</view>
+        <view class="{{current == 'time' ? 'active' : ''}}" data-current="time" bindtap="handlecurrent">最新</view>
       </view>
 
     <view class="index-list">
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"
-        mode="aspectFill"
+      <view class="index-list-item" wx:for ="{{listData}}" wx:key="{{index}}">
+        <image src="{{item.userPhoto}}"
+        mode="aspectFill" data-id="{{item._id}}" bindtap="handledetil"
         ></image>
         <view class="index-list-text">
-          <text>凉粉</text>
-          <text>
+          <text>{{m1.wordSplit(item.nickName)}}</text>
+          <text data-id="{{ item._id }}" bindtap="handleLinks">
             <text class="iconfont icon-goods1"></text>
-            <text>100</text>
+            <text>{{m2.unitFormat(item.links)}}</text>
           </text>
         </view>
       </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-      <view class="index-list-item">
-        <image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
-      </view>
-
     </view>
+
+
 </view>

@@ -1,2 +1,13 @@
-<!--miniprogram/pages/messagepage/messagepage.wxml-->
-<text>miniprogram/pages/messagepage/messagepage.wxml</text>
+<van-cell-group>
+  <van-field
+    value="{{ sms }}"
+    center
+    clearable ="{{true}}"
+    label="手机号"
+    placeholder="请输入手机号"
+    border="{{ true }}"
+    use-button-slot
+  >
+   <van-button slot="button" size="small" type="info" >发送验证码</van-button>
+  </van-field>
+</van-cell-group>

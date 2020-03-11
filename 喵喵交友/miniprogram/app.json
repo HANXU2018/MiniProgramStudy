@@ -3,10 +3,19 @@
     "pages/index/index",
     "pages/near/near",
     "pages/messagepage/messagepage",
-    "pages/user/user"
-
+    "pages/user/user",
+    "pages/editUserInfo/editUserInfo",
+    "pages/detail/detail",
+    "pages/friendList/friendList",
+    "pages/editUserInfo/head/head",
+    "pages/editUserInfo/location/location",
+    "pages/editUserInfo/name/name",
+    "pages/editUserInfo/phone/phone",
+    "pages/editUserInfo/signature/signature",
+    "pages/editUserInfo/weixin/weixin"
   ],
   "window": {
+    "navigationStyle": "default",
     "backgroundColor": "#C0E5FF",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#C0E5FF",
@@ -14,36 +23,38 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2",
   "tabBar": {
-    "borderStyle":"white",
-    "backgroundColor":"#C0E5FF",
-    "selectedColor":"#467EFF",
+    "borderStyle": "white",
+    "backgroundColor": "#C0E5FF",
+    "selectedColor": "#467EFF",
     "list": [
       {
-        "iconPath":"images/tabbar/index.png",
-        "selectedIconPath":"images/tabbar/indexselect.png",
+        "iconPath": "images/tabbar/index.png",
+        "selectedIconPath": "images/tabbar/indexselect.png",
         "pagePath": "pages/index/index",
         "text": "首页"
       },
       {
-        "iconPath":"images/tabbar/near.png",
-        "selectedIconPath":"images/tabbar/nearselect.png",
+        "iconPath": "images/tabbar/near.png",
+        "selectedIconPath": "images/tabbar/nearselect.png",
         "pagePath": "pages/near/near",
         "text": "附近"
       },
       {
-        "iconPath":"images/tabbar/message.png",
-        "selectedIconPath":"images/tabbar/messageselect.png",
+        "iconPath": "images/tabbar/message.png",
+        "selectedIconPath": "images/tabbar/messageselect.png",
         "pagePath": "pages/messagepage/messagepage",
         "text": "消息"
       },
       {
-        "iconPath":"images/tabbar/user.png",
-        "selectedIconPath":"images/tabbar/userselect.png",
+        "iconPath": "images/tabbar/user.png",
+        "selectedIconPath": "images/tabbar/userselect.png",
         "pagePath": "pages/user/user",
         "text": "我的"
       }
     ]
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button"
   }
 }
