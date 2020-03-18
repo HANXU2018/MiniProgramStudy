@@ -1,0 +1,48 @@
+/* components/removeList/removeList.wxss */
+.area{
+  width:calc(100% - 40rpx);
+  height: 100rpx;
+  margin:20rpx;
+  position: relative;
+  background: rgb(196, 244, 255);
+}
+.view{
+  padding-bottom: 4rpx;
+  width:calc(100% - 100rpx);
+  height: 100%;
+  background:  rgb(224, 247, 252);
+  position: absolute;
+  left: 100rpx;
+  top: 0;
+  line-height: 100rpx;
+  text-indent: 10rpx;
+  z-index: 2;
+}
+image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.delete{
+  width: 100rpx;
+  height: 100rpx;
+  background:rgba(252, 21, 21, 0.789);
+  color: white;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  text-align: center;
+  line-height: 100rpx;
+}
+.section{
+  border-bottom: 4px rgba(155, 231, 249, 0.453) dashed;
+}
+.nickName{
+  color: red;
+  font-size: large;
+}

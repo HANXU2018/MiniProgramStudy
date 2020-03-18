@@ -106,6 +106,13 @@
 					"pathName": "pages/detail/detail",
 					"query": "userId=1583839778319_0.556843017093686_33600541",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/messagepage/messagepage",
+					"pathName": "pages/messagepage/messagepage",
+					"query": "userId=1583839778319_0.556843017093686_33600541",
+					"scene": null
 				}
 			]
 		}

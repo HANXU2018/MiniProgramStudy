@@ -10,10 +10,11 @@ Page({
   data: {
     userPhoto: "https://love.hanxu51.cn/wp-content/uploads/2020/03/6fb80048b8aafd27d5651596a27e73478119bfc7.jpg",
     nickName: "app.userInfo.nickName",
-    signature:"",
+    signature: "",
     logged: false,
     disabled: true,
-    isLocation:true
+    isLocation: true,
+    id:''
   },
 
   /**
@@ -57,13 +58,14 @@ Page({
               userPhoto: app.userInfo[0].userPhoto,
               nickName: app.userInfo[0].nickName,
               logged: true,
-              isLocation : app.userInfo[0].isLocation,
-              signature:app.userInfo[0].signature
+              isLocation: app.userInfo[0].isLocation,
+              signature: app.userInfo[0].signature,
+              id:app.userInfo[0]._id
             });
             this.getMessage();
-          }else{
+          } else {
             this.setData({
-              disabled:false
+              disabled: false
             });
           }
         });
@@ -75,14 +77,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if(this.data.logged){
+    if (this.data.logged) {
       this.setData({
-        nickName:app.userInfo[0].nickName,
-        userPhoto:app.userInfo[0].userPhoto,
-        isLocation:app.userInfo[0].isLocation,
-        signature:app.userInfo[0].signature
+        nickName: app.userInfo[0].nickName,
+        userPhoto: app.userInfo[0].userPhoto,
+        isLocation: app.userInfo[0].isLocation,
+        signature: app.userInfo[0].signature,
+        id:app.userInfo[0]._id
       })
-      console.log("更新昵称为"+app.userInfo[0].nickName);
+      console.log("更新昵称为" + app.userInfo[0].nickName);
+      this.getMessage();
     }
   },
 
@@ -111,7 +115,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**
@@ -132,8 +136,9 @@ Page({
           signature: '',
           phoneNumber: '',
           weixinNumber: '',
-          isLocation:true,
+          isLocation: true,
           links: 0,
+          friendList:[],
           time: new Date()
         }
       }).then((res) => {
@@ -141,12 +146,12 @@ Page({
           //console.log(res.data);
           app.userInfo = Object.assign(app.userInfo, res.data)
           console.log(app.userInfo)
-          console.log("全局参数+"+app.userInfo)
+          console.log("全局参数+" + app.userInfo)
           this.setData({
             userPhoto: app.userInfo.userPhoto,
             nickName: app.userInfo.nickName,
-            isLocation:app.userInfo.isLocation,
-            signature:app.userInfo.signature,
+            isLocation: app.userInfo.isLocation,
+            signature: app.userInfo.signature,
             logged: true
           })
           this.getMessage();
@@ -172,27 +177,42 @@ Page({
               userPhoto: app.userInfo[0].userPhoto,
               nickName: app.userInfo[0].nickName,
               logged: true,
-              isLocation : app.userInfo[0].isLocation,
-              signature:app.userInfo[0].signature
+              isLocation: app.userInfo[0].isLocation,
+              signature: app.userInfo[0].signature,
+              id:app.userInfo[0]._id
             });
-          }else{
+          } else {
             this.setData({
-              disabled:false
+              disabled: false
             });
           }
         });
     });
-
-
-
-
-
-
-
-
-
   },
   getMessage(){
-    
+    db.collection('message').where({
+      userId : app.userInfo._id
+    }).watch({
+      onChange: function (snapshot) {
+        let list ;
+        if(typeof(snapshot.docChanges[0])!='undefined'){
+          list = snapshot.docChanges[0].doc.list;
+        }
+        if(list && list.length){
+          wx.showTabBarRedDot({
+            index: 2,
+          });
+          app.userMessage = list;
+        }else{
+          wx.hideTabBarRedDot({
+            index: 2,
+          }),
+          app.userMessage = [];
+        }
+      },
+      onError: function (err) {
+        console.error('the watch closed because of error', err)
+      }
+    });
   }
 })

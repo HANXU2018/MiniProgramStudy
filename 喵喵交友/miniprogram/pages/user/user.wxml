@@ -27,7 +27,7 @@
 				<text class="iconfont icon-TABbar2"></text>
 			</view>
 		</navigator>
-    <navigator url="../detail/detail" open-type="navigate" >
+    <navigator url="{{'../detail/detail?userId='+id}}" open-type="navigate" >
       <view class="user-list-item">
         <text>个人主页</text>
         <text class="iconfont icon-List"></text>

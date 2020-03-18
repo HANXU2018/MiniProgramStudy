@@ -8,19 +8,32 @@ Page({
    */
   data: {
     detail : {},
-    isFriend : false
+    isFriend : false,
+    isVisual:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      // console.log(options.userId)
       let userId =options.userId
       db.collection('users').doc(userId).get().then((res)=>{
         this.setData({
           detail:res.data
-        },console.log(this.data))
+        });
+        let friendList = res.data.friendList;
+        if(friendList.includes(app.userInfo[0]._id)){
+          this.setData({
+            isFriend:true
+          });
+        }else{
+          if(userId == app.userInfo[0]._id){
+            this.setData({
+              isFriend:true,
+              isVisual:false
+            })
+          }
+        }
       })
   },
 

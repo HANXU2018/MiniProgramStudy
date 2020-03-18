@@ -16,7 +16,7 @@
       </view>
 
     <view class="index-list">
-      <view class="index-list-item" wx:for ="{{listData}}" wx:key="{{index}}">
+      <view class="index-list-item" wx:for ="{{listData}}" wx:key="index">
         <image src="{{item.userPhoto}}"
         mode="aspectFill" data-id="{{item._id}}" bindtap="handledetil"
         ></image>

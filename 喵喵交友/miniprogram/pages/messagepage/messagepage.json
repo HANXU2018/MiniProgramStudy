@@ -2,6 +2,8 @@
   "usingComponents": {
     "van-button": "@vant/weapp/button",
     "van-field":"@vant/weapp/field",
-    "van-cell-group":"@vant/weapp/cell-group"
+    "van-cell-group":"@vant/weapp/cell-group",
+    "van-swipe-cell": "@vant/weapp/swipe-cell",
+    "remove-list":"/components/removeList/removeList"
   }
 }
