@@ -113,6 +113,20 @@
 					"pathName": "pages/messagepage/messagepage",
 					"query": "userId=1583839778319_0.556843017093686_33600541",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/friendList/friendList",
+					"pathName": "pages/friendList/friendList",
+					"query": "userId=1583839778319_0.556843017093686_33600541",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/near/near",
+					"pathName": "pages/near/near",
+					"query": "userId=1583839778319_0.556843017093686_33600541",
+					"scene": null
 				}
 			]
 		}

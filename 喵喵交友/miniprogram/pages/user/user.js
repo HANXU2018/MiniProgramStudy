@@ -14,6 +14,8 @@ Page({
     logged: false,
     disabled: true,
     isLocation: true,
+    longitude:0,
+    latitude:0,
     id:''
   },
 
@@ -41,6 +43,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.getLocation();
     wx.cloud.callFunction({
       name: "login",
       data: {}
@@ -137,6 +140,8 @@ Page({
           phoneNumber: '',
           weixinNumber: '',
           isLocation: true,
+          latitude:this.data.latitude,
+          longitude:this.data.longitude,
           links: 0,
           friendList:[],
           time: new Date()
@@ -214,5 +219,16 @@ Page({
         console.error('the watch closed because of error', err)
       }
     });
+  },
+  getLocation(){
+    let that =this;
+    wx.getLocation({
+      type: 'gcj02 ',
+      success (res) {
+        console.log(res);
+       that.data.latitude = res.latitude;
+       that.data.longitude = res.longitude;
+      }
+     })
   }
 })

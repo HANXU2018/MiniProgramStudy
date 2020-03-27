@@ -4,9 +4,7 @@
   </view>
   <view wx:else>
     <text class="message-text">消息列表：</text>
-    <view wx:for="{{userMessage}}" wx:key="index">
-      <view>{{item}}</view>
-    </view>
+    
 
     <remove-list wx:for="{{userMessage}}" wx:key="index" messageId="{{item}}"  bind:myevent="onMyEvent" />
   </view>

@@ -1,2 +1,35 @@
-<!--miniprogram/pages/friendList/friendList.wxml-->
-<text>miniprogram/pages/friendList/friendList.wxml</text>
+<van-collapse value="{{ activeNames }}" bind:change="onChange">
+	<van-collapse-item name="1">
+		<view class="friendList-item" slot="title">
+			<image class="UserPhoto" src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
+			<text>昵称</text>
+		</view>
+		<view class="item-detil">
+			<image src="https://love.hanxu51.cn/wp-content/uploads/2020/03/0-2.jpg"></image>
+			<view class="item-signature">
+				个性签名
+			</view>
+		</view>
+	</van-collapse-item>
+
+</van-collapse>
+
+<van-collapse value="{{ activeNames }}" bind:change="onChange">
+	<van-collapse-item wx:for="{{ friendList }}" wx:key="{{ index }}" name="{{ index }}">
+		<view  slot="title">
+      <view class="friendList-item">
+      <navigator wx:key="{{ index }}" url="{{ '../detail/detail?userId=' + item._id }}" open-type="navigate">
+				<image class="UserPhoto" src="{{ item.userPhoto }}"></image>
+        	</navigator>
+				<text>{{ item.nickName }}</text>
+        </view>
+		</view>
+		<view class="item-detil">
+			<image src="{{ item.userPhoto }}"></image>
+			<view class="item-signature">
+				{{ item.signature }}
+			</view>
+		</view>
+	</van-collapse-item>
+
+</van-collapse>
